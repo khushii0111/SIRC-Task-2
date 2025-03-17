@@ -109,9 +109,11 @@ form{
   border: solid rgb(119, 33, 175) 3px;
   border-radius: 20px;
   background-color: #c2afe6;
-  width: 35vw;
+  width: 50vw;
   padding: 23px;
   align-items: center;
+  text-align: center;
+  font-size: large;
 }
 .forms{
  padding-top: 10vh;
