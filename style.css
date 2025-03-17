@@ -99,3 +99,93 @@ caption{
   text-align: center;
   padding: 30px;
 }
+.form{
+  background-color: #FFF7F3;
+  display: flex;
+  justify-content: center;
+  height: 45vh;
+}
+form{
+  border: solid rgb(119, 33, 175) 3px;
+  border-radius: 20px;
+  background-color: #c2afe6;
+  width: 35vw;
+  padding: 23px;
+  align-items: center;
+}
+.forms{
+ padding-top: 10vh;
+}
+.register{
+  padding-bottom: 5vh;
+  padding-top: 5vh ;
+}
+.submit{
+  
+    border: solid white 2px;
+    color: azure;
+    border-radius: 6px;
+    padding: 8px;
+    margin: 20px;
+    background-color: rgb(22, 199, 25);
+  }
+  .submit:hover {
+    background-color: #3e8e41;
+}
+.testi{
+  background-color: #FFF7F3;
+  display: flex;
+}
+.t1{
+  border: solid rgb(119, 33, 175) 3px;
+  padding: 20px;
+  height: 20vh;
+  margin: 20px;
+  border-radius: 8px;
+  background-color: #c2afe6;
+}
+.t2{
+  border: solid rgb(119, 33, 175) 3px;
+  padding: 20px;
+  height: 20vh;
+  margin: 20px;
+  border-radius: 8px;
+  background-color: #c2afe6;
+}
+.t3{
+  border: solid rgb(119, 33, 175) 3px;
+  padding: 20px;
+  height: 20vh;
+  margin: 20px;
+  border-radius: 8px;
+  background-color: #c2afe6;
+}
+.heading{
+  background-color: #FFF7F3;
+  text-align: center;
+  padding: 2vw;
+  font-size: x-large;
+}
+.t1:hover{
+  background-color: rgb(230, 190, 230);
+}
+.t2:hover{
+  background-color: rgb(230, 190, 230);
+}
+.t3:hover{
+  background-color: rgb(230, 190, 230);
+}
+.contact{
+  background-color: #FFF7F3;
+ 
+}
+.footer{
+  background-color: #FFF7F3;
+  text-align: center;
+  font-size: large;
+}
+.contact_us{
+  background-color: #FFF7F3;
+  padding: 3vh;
+  text-align: center;
+}
