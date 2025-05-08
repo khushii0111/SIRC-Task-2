@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>User Profile</title>
+  <link rel="icon" href="apple-touch-icon.png"/>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f0f2f5;
+      padding: 50px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .profile-card {
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      width: 100%;
+      max-width: 500px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+
+    .profile-card h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .profile-row {
+      margin-bottom: 15px;
+    }
+
+    .profile-row label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .profile-row input, .profile-row select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+      background-color: #f9f9f9;
+    }
+
+    .profile-row input[readonly] {
+      background-color: #e9ecef;
+      color: #495057;
+    }
+
+    .btn-container {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin: 0 10px;
+      font-size: 14px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .edit-btn {
+      background-color: #007bff;
+      color: white;
+    }
+
+    .save-btn {
+      background-color: #28a745;
+      color: white;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="profile-card">
+    <h2>User Profile</h2>
+    <form id="profileForm">
+      <div class="profile-row">
+        <label>Full Name</label>
+        <input type="text" id="name" value="John Doe" readonly>
+      </div>
+      <div class="profile-row">
+        <label>Email</label>
+        <input type="email" id="email" value="john@example.com" readonly>
+      </div>
+      <div class="profile-row">
+        <label>Phone</label>
+        <input type="tel" id="phone" value="1234567890" readonly>
+      </div>
+      <div class="profile-row">
+        <label>Gender</label>
+        <select id="gender" disabled>
+          <option>Male</option>
+          <option>Female</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="profile-row">
+        <label>Age</label>
+        <input type="number" id="age" value="25" readonly>
+      </div>
+      <div class="btn-container">
+        <button type="button" class="edit-btn">Edit</button>
+        <button type="submit" class="save-btn">Save</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>
+

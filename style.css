@@ -99,7 +99,7 @@ caption{
   text-align: center;
   padding: 30px;
 }
-.form{
+/* .form{
   background-color: #FFF7F3;
   display: flex;
   justify-content: center;
@@ -117,13 +117,12 @@ form{
 }
 .forms{
  padding-top: 10vh;
-}
+} */
 .register{
   padding-bottom: 5vh;
   padding-top: 5vh ;
 }
 .submit{
-  
     border: solid white 2px;
     color: azure;
     border-radius: 6px;
