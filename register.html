@@ -1,75 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <link rel="icon" href="apple-touch-icon.png"/>v
+  <link rel="icon" href="apple-touch-icon.png" />v
   <title>Event Registration</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: #b48af4;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #c066e6;
+            position: relative;
+        }
 
-    .form-container {
-        border: solid #000000 2px;
-      background: #fff;
-      padding: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      width: 100%;
-      max-width: 400px;
-    }
+        .container {
+            max-width: 500px;
+            margin: 40px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
 
-    .form-container h2 {
-      text-align: center;
-      margin-bottom: 1rem;
-    }
+        h2 {
+            text-align: center;
+        }
 
-    input, select {
-      width: 100%;
-      padding: 10px;
-      margin: 10px 0px;
-      border: 1px solid #050101;
-      border-radius: 6px;
-    }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
 
-    button {
-      width: 100%;
-      padding: 12px;
-      background: #007bff;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      font-size: 16px;
-      cursor: pointer;
-    }
+        input,
+        select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
 
-    button:hover {
-      background: #0056b3;
-    }
-  </style>
+        button {
+            margin-top: 20px;
+            width: 100%;
+            padding: 10px;
+            background: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .modal {
+            position: fixed;
+            top: -100px;
+            left: 50%;
+            background: #333;
+            color: white;
+            padding: 15px 30px;
+            text-align: center;
+            border-radius: 4px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            min-width: 300px;
+        }
+
+        .modal.show {
+            top: 20px;
+        }
+
+        .modal.error {
+            background-color: #dc3545;
+        }
+
+        .modal.success {
+            background-color: #28a745;
+        }
+    </style>
 </head>
+
 <body>
 
-  <div class="form-container">
-    <h2>Event Registration</h2>
-    <form id="registerForm">
-      <input type="text" id="name" placeholder="Full Name" required>
-      <input type="email" id="email" placeholder="Email" required>
-      <input type="tel" id="phone" placeholder="Phone Number" required>
-      <select id="gender" required>
-        <option value="">Select Gender</option>
-        <option>Male</option>
-        <option>Female</option>
-        <option>Other</option>
-      </select>
-      <input type="number" id="age" placeholder="Age" required min="1" max="120">
-      <button type="submit">Register</button>
-    </form>
-  </div>
+  <div class="container" id="registerPage">
+        <h2>Register for the Event</h2>
+        <form onsubmit="return validateForm()">
+            <label>Full Name</label>
+            <input type="text" id="name">
+            <label>Email</label>
+            <input type="text" id="email">
+            <label>Phone</label>
+            <input type="text" id="phone">
+            <label>Date of Birth</label>
+            <input type="date" id="dob">
+            <label>Gender</label>
+            <select id="gender">
+                <option value="">Select</option>
+                <option>Male</option>
+                <option>Female</option>
+                <option>Other</option>
+            </select>
+            <button type="submit">Register</button>
+        </form>
+    </div>
+    <div id="modal" class="modal"></div>
+  <script>
+        function showModal(message, type) {
+            var modal = document.getElementById('modal');
+            modal.textContent = message;
+            modal.className = 'modal show ' + type;
+            setTimeout(function () { modal.className = 'modal'; }, 3000);
+        }
+
+        function validateForm() {
+            var name = document.getElementById('name').value;
+            var email = document.getElementById('email').value;
+            var phone = document.getElementById('phone').value;
+            var dob = document.getElementById('dob').value;
+            var gender = document.getElementById('gender').value;
+
+            if (name === '' || email === '' || phone === '' || dob === '' || gender === '') {
+                showModal("Please fill in all fields.", "error");
+                return false;
+            }
+
+            if (phone.length !== 10 || isNaN(phone)) {
+                showModal("Phone number must be 10 digits.", "error");
+                return false;
+            }
+
+            if (email.indexOf('@') === -1 || email.indexOf('.') === -1) {
+                showModal("Enter a valid email.", "error");
+                return false;
+            }
+
+            showModal("Registration successful!", "success");
+            return false;
+          }
+    </script>
 </body>
+
 </html>
