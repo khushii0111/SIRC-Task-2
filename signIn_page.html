@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="icon" href="apple-touch-icon.png"/>
+    <link rel="icon" href="apple-touch-icon.png" />
     <title>Sign In</title>
     <style>
         body {
@@ -49,12 +49,39 @@
             font-size: 16px;
             cursor: pointer;
         }
-        a{
+
+        a {
             text-decoration: none;
             color: white;
         }
+
         button:hover {
             background: #0056b3;
+        }
+
+        .modal {
+            position: fixed;
+            top: -100px;
+            left: 50%;
+            background: #333;
+            color: white;
+            padding: 15px 30px;
+            text-align: center;
+            border-radius: 4px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            min-width: 300px;
+        }
+
+        .modal.show {
+            top: 20px;
+        }
+
+        .modal.error {
+            background-color: #dc3545;
+        }
+
+        .modal.success {
+            background-color: #28a745;
         }
     </style>
 </head>
@@ -63,12 +90,37 @@
 
     <div class="signin-container">
         <h2>Sign In</h2>
-        <form id="signinForm">
+        <form onsubmit="return validateForm()" ;>
             <input type="email" id="email" placeholder="Email" required>
             <input type="password" id="password" placeholder="Password" required>
-            <button type="submit"><a href="user_profile.html" target="_blank"><b>Sign In</b></a></button>
+            <button type="submit"><b>Sign In</b></button>
         </form>
     </div>
+    <div id="modal" class="modal"></div>
+    <script>
+        function showModal(message, type) {
+            var modal = document.getElementById('modal');
+            modal.textContent = message;
+            modal.className = 'modal show ' + type;
+            setTimeout(function () { modal.className = 'modal'; }, 5000);
+        }
+
+        function validateForm() {
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+
+            if (email === '' || password === '') {
+                showModal("Please fill in all fields.", "error");
+                return false;
+            }
+            if (email.indexOf('@') === -1 || email.indexOf('.') === -1) {
+                showModal("Enter a valid email.", "error");
+                return false;
+            }
+            showModal("Registration successful!", "success");
+            return true;
+        }
+    </script>
 </body>
 
 </html>
